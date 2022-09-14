@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<head>
+    <title>menu</title>
+</head>
+<html>
+    <body>	
+        <form style="text-align:right;" method="post" action="/process/{{nProcess}}">
+
+            <input type="submit" value="Voltar" name="botao" />
+        
+        </form>
+        <h1 style="text-align:center;">Lista de recibos</h1>
+        
+        <p style="text-align:center;"> <b>Data Inicio</b>: {{db_process[1]}} <b>Data Fim</b>: {{db_process[2]}} <b>Descrição</b>: {{db_process[3]}} <b>Valor Total</b>: {{db_process[5]}}€</p>
+
+        <form method="post" action="/process/{{nProcess}}">
+
+            <input type="submit" value="Adicionar nova despesa" name="botao" />
+        
+        </form>
+
+        {% for x in range(n) %}
+        <form method="post" action="/process/{{nProcess}}">
+            <hr>
+            <p>Data: {{day[x]}}</p>
+            <p>Tipo: {{type1[x][0]}}</p>
+            <p>Preço: {{price[x]}}€</p>
+            <p>Empresa: {{merchant[x]}}</p>
+            <p>Metodo de pagamento: {{paymentMethod[x][0]}}</p>
+            <p>Descrição: {{description[x]}}</p>
+            <p>Photo: {{photo[x]}}</p>
+            <!--<input type="image" src="img_submit.gif" alt="Submit" width="48" height="48"> -->
+            <p>Aprovação: {{approved[x]}}</p> 
+            
+            
+            <input type = "submit" value = "Editar  {{x}}" name="botao" {{disabled[x]}}/>
+            <input type = "submit" value = "Eliminar{{x}}" name="botao" {{disabled[x]}}/>
+
+        </form>
+
+        
+        {% endfor %}
+
+    </body>
+</html>
+

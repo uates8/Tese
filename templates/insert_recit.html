@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<head>
+    <title>insert</title>
+</head>
+<html>
+    <body>	
+
+        <form style="text-align:right;" method="post" action="/insertrecit/{{nProcess}}">
+
+            <input type="submit" value="Voltar" name="botao" />
+        
+        </form>
+
+        <h1 style="text-align:center;">Nova despesa</h1>
+
+        <h2>Por favor preencha o formulário</h2>
+
+        
+        <form method="post" action="/insertrecit/{{nProcess}}">
+            <p>Qual foi o tipo da despesa:
+                <input type="radio" id="car" name="tipo" value="1">
+                <label for="car">Transporte</label>
+                <input type="radio" id="hotel" name="tipo" value="2">
+                <label for="hotel">Alojamento</label>
+                <input type="radio" id="food" name="tipo" value="3">
+                <label for="food">Alimentação</label>
+                <input type="radio" id="outro" name="tipo" value="4" checked>
+                <label for="outro">Outro</label>
+            </p>
+            <p>Qual foi o montante da sua despesa?
+            <input type="number" id="euro" name="valor" step="0.01"></p>
+            <p>Qual foi a data da sua despesa?
+            <input type="date" name="date"></p>
+            <p>Empresa:
+            <input type="text" name="empresa"></p>
+            <p>Qual foi o método de pagamento:
+                <input type="radio" id="money" name="pay" value="1">
+                <label for="money">Dinheiro</label>
+                <input type="radio" id="card" name="pay" value="2">
+                <label for="card">Cartão</label>
+                <input type="radio" id="cheque" name="pay" value="3">
+                <label for="cheque">Cheque Bancário</label>
+                <input type="radio" id="outro" name="pay" value="4" checked>
+                <label for="outro">Outro</label>
+            </p>
+            <p>Descrição:</p>
+            <input type="text" name="descricao" size="50">
+            <p><input type = "submit" value = "Validar" name="botao"/></p>
+
+            {% for message in get_flashed_messages() %}
+                {{message}}
+            {% endfor %}
+
+        </form>
+
+
+    </body>
+</html>
+

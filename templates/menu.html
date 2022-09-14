@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<head>
+    <title>menu</title>
+</head>
+<html>
+    <body>
+        
+        <form style="text-align:right;" method="post" action="/menu/{{name}}">
+        
+            <input type="submit" value="Definições" name="x" />
+            <input type="submit" value="Log Out" name="x" />
+            
+        </form>	
+
+        <h1 style="text-align:center;">Página principal</h1>
+
+        <form method="post" action="/menu/{{name}}">
+
+            <input type="submit" value="Adicionar novo processo" name="x" />
+        
+        </form>
+
+        <h2>Qual o processo que quer editar?</h2>
+
+        {% for x in range(n) %}
+        <form method="post" action="/menu/{{name}}">
+            <hr>
+            <p>Projeto: {{project[x][0]}}</p>
+            <p>Data Inicio: {{date1[x]}}</p>
+            <p>Data Fim: {{date2[x]}}</p>
+            <p>Descrição: {{descricao[x]}}</p>
+            <p>Status: {{status[x][0]}}</p>
+            <p>Preço final: {{priceTotal[x]}}€</p>           
+
+            <input type = "submit" value = "Editar  {{x}}" name="x" />
+            <input type = "submit" value = "Eliminar{{x}}" name="x"/>
+        </form>
+        
+        {% endfor %}
+
+    </body>
+</html>
+

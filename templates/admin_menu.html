@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<head>
+    <title>admin</title>
+</head>
+<html>
+    <body>
+        
+        <form style="text-align:right;" method="post" action="/adminmenu">
+        
+            <input type="submit" value="Definições" name="botao" />
+            <input type="submit" value="Log Out" name="botao" />
+        
+        </form>	
+
+        <h1 style="text-align:center;">Página principal</h1>
+
+        <h2>Escolha o utilizador</h2>
+
+        {% for x in range(n) %}
+        <form method="post" action="/adminmenu">
+            <hr>
+            <p>Nome: {{db_users[x][0]}}</p>
+            <p>Mail: {{db_users[x][1]}}</p>
+            <p>NIF: {{db_users[x][2]}}</p>
+            <p>IBAN: {{db_users[x][3]}}</p>
+            <p>Morada: {{db_users[x][4]}}</p>
+
+            <p><input type = "submit" value = "{{x}} Editar Processos" name="botao" /></p>
+        </form>
+
+        {% endfor %}
+
+    </body>
+</html>
+

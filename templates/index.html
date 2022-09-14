@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<head>
+    <title>Login</title>
+</head>
+<body>
+    
+    
+
+    <h1 style="text-align:center;"> Login</h1>
+
+    <form style="text-align:center;" method="post" action="/">
+        <p>Inserir Nome:</p>
+        <p><input type = "text" name = "nm" /></p>
+        <p>Inserir Palavra-chave:</p>
+    
+        <p><input type = "password" name = "pass" /></p>
+        <p><input type = "submit" value = "Submeter" /></p>
+    {% for message in get_flashed_messages() %}
+        {{message}}
+    {% endfor %}
+    </form>
+    
+</body>
+

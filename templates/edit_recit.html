@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<head>
+    <title>edit</title>
+</head>
+<html>
+    <body>	
+        <h1 style="text-align:center;">Editar despesa</h1>
+
+        <h2>Por favor edite o formulário</h2>
+
+        
+        <form method="post" action="/editrecit/{{recit}}">
+            <p>Qual foi o tipo da despesa:
+                <input type="radio" id="car" name="tipo" value="1" {{tipo1}}>
+                <label for="car">Transporte</label>
+                <input type="radio" id="hotel" name="tipo" value="2" {{tipo2}}>
+                <label for="hotel">Alojamento</label>
+                <input type="radio" id="food" name="tipo" value="3" {{tipo3}}>
+                <label for="food">Alimentação</label>
+                <input type="radio" id="outro" name="tipo" value="4" {{tipo4}}>
+                <label for="outro">Outro</label>
+            </p>
+            <p>Qual foi o montante da sua despesa?
+            <input type="number" id="euro" name="valor" step="0.01" value={{price}}></p>
+            <p>Qual foi a data da sua despesa?
+            <input type="date" name="date" value={{day}}></p>
+            <p>Empresa:
+                <input type="text" name="empresa" value={{merchant}}></p>
+                <p>Qual foi o método de pagamento:
+                    <input type="radio" id="money" name="pay" value="1" {{m1}}>
+                    <label for="money">Dinheiro</label>
+                    <input type="radio" id="card" name="pay" value="2" {{m2}}>
+                    <label for="card">Cartão</label>
+                    <input type="radio" id="cheque" name="pay" value="3" {{m3}}>
+                    <label for="cheque">Cheque Bancario</label>
+                    <input type="radio" id="outro" name="pay" value="4" {{m4}}>
+                    <label for="outro">Outro</label>
+                </p>
+            <p>Descrição:</p>
+            <input type="text" name="descricao" value={{description}} size="50">
+            <p><input type = "submit" value = "Validar" name="botao"/></p>
+
+            {% for message in get_flashed_messages() %}
+                {{message}}
+            {% endfor %}
+
+        </form>
+
+
+    </body>
+</html>
+

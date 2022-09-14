@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<head>
+    <title>menu</title>
+</head>
+<html>
+    <body>
+        
+        <form style="text-align:right;" method="post" action="/adminlist/{{numb}}">
+        
+            <input type="submit" value="Voltar" name="botao" />
+        
+        </form>	
+
+        <h1 style="text-align:center;">Lista</h1>
+
+        <h2>Qual o processo que quer avaliar?</h2>
+
+        {% for x in range(n) %}
+            <hr>
+            <hr>
+            <p style="text-align:center;">Projeto: {{project[x][0]}}</p>
+            <p style="text-align:center;">Data Inicio: {{db_process[x][2]}}</p>
+            <p style="text-align:center;">Data Fim: {{db_process[x][3]}}</p>
+            <p style="text-align:center;">Descrição: {{db_process[x][4]}}</p>
+            <p style="text-align:center;">Status: {{status[x][0]}}</p>
+            <p style="text-align:center;">Preço final: {{db_process[x][6]}}€</p>  
+
+            <form style="text-align:center;" method="post" action="/adminlist/{{numb}}">
+                <label for="status">Escolha:</label>
+                <select id="status" name="status">
+                    <option value="1">Requisição</option>
+                    <option value="2">Aguardar Autorização Requisição</option>
+                    <option value="3">Requisição Autorizada</option>
+                    <option value="4">Requisição Rejeitada</option>
+                    <option value="5">Reembolso</option>
+                    <option value="6">Aguardar Validação Reembolso</option>
+                    <option value="7">Reembolso Valido</option>
+                    <option value="8">Reembolso Rejeitado</option>
+                    <option value="9">Reembolso Entregue</option>
+                    <option value="10">Reembolso Pago</option>
+                </select>
+                <input type = "submit" value = "Submeter{{db_process[x][0]}}" name="botao"/></p>
+            </form>
+
+            {% for y in range(n2[x]) %}
+                <hr>
+                <p>Data: {{db_recit4[x][y][0]}}</p>
+                <p>Tipo: {{db_recit4[x][y][1]}}</p>
+                <p>Preço: {{db_recit4[x][y][2]}}€</p>
+                <p>Empresa: {{db_recit4[x][y][3]}}</p>
+                <p>Método de pagamento: {{db_recit4[x][y][4]}}</p>
+                <p>Descrição: {{db_recit4[x][y][5]}}</p>
+                <p>Photo: {{db_recit4[x][y][6]}}</p>
+                <p>Aprovação: {{db_recit4[x][y][7]}}</p> 
+
+                <form method="post" action="/adminlist/{{numb}}">
+                    <input type = "submit" value = "Aprovar{{db_recit4[x][y][8]}}" name="botao"/>
+                    <input type = "submit" value = "Desaprovar{{db_recit4[x][y][8]}}" name="botao"/>
+                </form>                
+
+            {% endfor %}
+
+        {% endfor %}
+
+    </body>
+</html>
+

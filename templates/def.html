@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<head>
+    <title>Definições</title>
+</head>
+<html>
+    <body>	
+
+        <form style="text-align:right;" method="post" action="/defi/{{name}}">
+
+            <input type="submit" value="Voltar" name="botao" />
+        
+        </form>
+
+        <h1 style="text-align:center;">Definições</h1>
+
+        <h2></h2>
+
+        <form method="post" action="/defi/{{name}}">
+            <h3>Alterar dados de conta</h5>
+
+            <label for="pass">Pass:</label>
+            <input type="text" name="pass" id="pass" value="{{db_user[0]}}" required></p>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" size="25" value="{{db_user[1]}}" required></p>
+
+            <label for="iban">IBAN:</label>
+            <input type="text" name="iban" id="iban" size="27" pattern="PT50[0-9]{21}" placeholder="PT50[0-9]{21}" value="{{db_user[3]}}" required></p>
+
+            <label for="nif">NIF:</label>
+            <input type="text" name="nif" id="nif" pattern="[0-9]{9}" size="12" value="{{db_user[2]}}" required></p>    
+
+            <label for="morada">Morada:</label>
+            <input type="text" name="morada" id="morada" size="50" placeholder="Rua ..." value="{{db_user[4]}}" required></p>
+
+            <input type="submit" value = "Atualizar" name="botao"/>
+            
+        </form>
+
+
+    </body>
+</html>
+

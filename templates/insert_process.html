@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<head>
+    <title>insert</title>
+</head>
+<html>
+    <body>	
+
+        <form style="text-align:right;" method="post" action="/insertprocess/{{nUser}}">
+
+            <input type="submit" value="Voltar" name="botao" />
+        
+        </form>
+
+        <h1 style="text-align:center;">Novo processo</h1>
+
+        <h2>Por favor preencha o formulário</h2>
+
+        
+        <form method="post" action="/insertprocess/{{nUser}}">
+            
+            <p>Qual foi a data de inicio do seu processo?
+            <input type="date" name="date1"></p>
+
+            <p>Qual foi a data de fim do seu processo?
+                <input type="date" name="date2">
+            </p>
+
+            <label for="projects">Escolha um projeto:</label>
+            <select id="projects" name="projects">
+
+                {% for x in range(n) %}
+                <option value="{{x+1}}">{{db_proj[x][0]}}</option>
+                {% endfor %}
+
+            </select>
+            
+            <p>Descrição:</p>
+            <input type="text" name="descricao" size="50">
+            <p><input type = "submit" value = "Validar" name="botao"/></p>
+
+            {% for message in get_flashed_messages() %}
+                {{message}}
+            {% endfor %}
+
+        </form>
+
+
+    </body>
+</html>
+
